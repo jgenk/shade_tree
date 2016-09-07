@@ -1,5 +1,5 @@
 #ignore all data 
-data/
+data/*
 
 # Except a small data dump for testing
-!data/dump_example.csv
+! data/dump_example.csv
