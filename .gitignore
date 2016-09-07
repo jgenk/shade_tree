@@ -1,8 +1,0 @@
-#ignore all files 
-*
-
-# Except code 
-!*.py
-
-# And small data dump for testing
-!dump_example.csv
