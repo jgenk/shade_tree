@@ -1,0 +1,4 @@
+#ignore data files
+*.csv
+#except example small data dump for testing
+except dump_example.csv
