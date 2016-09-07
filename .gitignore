@@ -1,4 +1,8 @@
-#ignore data files
-*.csv
-#except example small data dump for testing
-except dump_example.csv
+#ignore all files 
+*
+
+# Except code 
+!*.py
+
+# And small data dump for testing
+!dump_example.csv
