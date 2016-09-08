@@ -1,9 +1,9 @@
 #ignore all data 
 data/*
 
-
-# Except a small data dump for testing
+# Except a small data dump for testing and full medlist
 !data/dump_example.csv
+!data/alldrugs.html
 
 #ignore python compiled files
 *.pyc
