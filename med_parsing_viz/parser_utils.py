@@ -4,6 +4,10 @@ import sys
 from datetime import datetime, date, time
 
 def allPtWithIneligibleMeds(patients):
+# given a list of patients, returns a dictionary where:
+#		k = list of patient objects with at least one PAP ineligible med
+#		v = the list of PAP ineligible medication objects from the patient key
+
     ineligibles = {}
     for patient in patients :
         ineligibleMeds = getPAPIneligibleMeds(patient)
@@ -12,12 +16,17 @@ def allPtWithIneligibleMeds(patients):
         
 
 def getPAPIneligibleMeds(patient):
+# creates a list of PAP ineligible medications from the medications associated with this patient object
     ineligibleMeds = []
     for med in patient.medList :
         if isPAPineligible(med) : ineligibleMeds.append(med)
     return ineligibleMeds
 
 def getAllPtNeedPAPRenewal(patients,date):
+# given a list of patients, returns a dictionary where:
+#		k = list of patient objects with at least one PAP medication in need of renewel by DATE
+#		v = the list of PAP medication objects in need of renewl by DATE from the patient key
+
     needsRenewals = {}
     for patient in patients :
         expiringMeds = getPAPRenewalNeededMeds(patient, date)
@@ -25,7 +34,8 @@ def getAllPtNeedPAPRenewal(patients,date):
     return needsRenewals
 
 def getPAPRenewalNeededMeds(patient, date):
-    needRenwelMeds = []
+# creates a list of PAP medications in needed of renewel by DATE from the medications associated with this patient object
+   needRenwelMeds = []
     for med in patient.medList :
         if not isPAPapproved(med) : continue
         if needsPAPRenewal(med,date) : needRenwelMeds.append(med)
@@ -63,10 +73,10 @@ def getFilename(filename) :
     if len(filename)== 0 : filename = raw_input("Enter filename of csv containing medication data dump: ")
     return filename
         
-if __name__ == '__main__':
-    patient_list = data_dump_parser.buildPatientList(getFilename(sys.argv[1]))
-    for patient in patient_list: 
-        print patient
+# if __name__ == '__main__':
+    # patient_list = data_dump_parser.buildPatientList(getFilename(sys.argv[1]))
+    # for patient in patient_list: 
+        # print patient
         
 # if __name__ == '__main__':
     # filename = sys.argv[1]

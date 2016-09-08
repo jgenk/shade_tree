@@ -4,12 +4,15 @@ import sys
 
 MED_LIST_TAG = "PrListMed"
 PTNAME_TAG = "PtName"
+PTAGE_TAG = "PtAge"
+
 
 class Patient:
     
     def __init__(self,mrn,attributes):
         
         self.mrn = mrn
+		#attributeList is a dictionary of k = string attribute tags (ex. "PtName") to a v = list of associated attr values (ex. "doe, jane")
         self.attributeList = attributes
         self.medList = []
         if self.attributeList.has_key(MED_LIST_TAG):
@@ -30,25 +33,21 @@ class Patient:
         output = "MRN: " + self.mrn + "\n"
         
         for key in self.attributeList.keys():
-            output = output + key + ": " + ''.join(self.attributeList[key]) +"\n"
+            output = output + key + ": " + "\n".join(self.attributeList[key]) +"\n"
         output = output + "Med List:\n"
         for med in self.medList :
             output = output + str(med) + "\n"
         return output
 
-        
-def getData(filename):
-    
-    return data
-
-def buildPatientList(filename):
+		
+def buildPatientList(csv_filename):
     # Retrieves all data from the CSV and returns a reader object
     data = []
-    with open(filename, 'rb') as file :
-        reader = csv.reader(file)
-        for row in reader:
-            data.append(row)
-    
+    file = open(csv_filename, 'rb')
+    reader = csv.reader(file, delimiter='\t')
+    for row in reader:
+        data.append(row)
+
     # Make list of patient objects
     patient_list = []
     current_pt = data[0][0]

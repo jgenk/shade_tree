@@ -1,5 +1,9 @@
 #ignore all data 
 data/*
 
+
 # Except a small data dump for testing
 !data/dump_example.csv
+
+#ignore python compiled files
+*.pyc
