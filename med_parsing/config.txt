@@ -1,0 +1,37 @@
+charges.all_charges
+item_desc=Item Description
+ndc=NDC;NDC/UPC
+rxcui|int=
+gen_desc=Generic Description
+mfr_name=Mfr/Supplier Name
+cred_dt|date=Invoice/Credit Date;Invc/CrDate;Invoice/ Credit Date
+unit_cnt|int=
+qty_ord|smallint=Ordered Qty;Ord Qty
+qty_net|smallint=Net Qty;Net
+uom=Order Unit of Measure (UOM);UOM
+invoice_pkg|money=Invoiced Price (Pkg);Pkg Price;Unit Price
+invoice_ext_price|money=Invoice Extended Price;Ext.Price;Extended Price
+#acc_num=Account Number;Cust#
+#acc_nm=Account Name;Customer Name
+mck_item=McKesson Item Number;McK Item#;McKesson Number
+#orig_invc=Original Invoice # (on Credit Transaction);OrigInvc
+#cred_num=Invoice/Credit #;Invc/Cred#
+#cntrct_ind=Contract Price Indicator (Current);C;Contract Indicator (History)
+#cntrct_desc=Contract Description (Current);Contract Description (History)
+#po_num=PO #;PO#
+#qty_inv=Invoiced Quantity;Invoiced Qty;Fill
+#qty_ret=Returned/Credited Quantity;Credit Qty;Return
+#dept=Department
+#memo=PO Memo
+#drop_ship=Drop Ship Indicator
+therap_desc=Therapeutic Description
+gen_status=Generic Status
+charges.all_charges
+
+charges.rxnorm_data
+rxcui|int=
+ingredient=get_ing_for_rxcui
+strength=get_strength_for_rxcui
+may_treat|text[]=get_maytreat_for_rxcui
+ndc|text[]=
+charges.rxnorm_data

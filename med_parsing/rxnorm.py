@@ -53,13 +53,21 @@ def get_approx_term(term, unique_rxcuid=False, max_return=3, options=1):
         approx_terms.append(approx_dict)
     return approx_terms
 
+#/rxcui?idtype=value&id=value&allsrc=value
+def get_rxcui_for_NDC(ndc):
+    tree = xml_tree_for_url('/rxcui?idtype={type}&id={val}&option={opt}'.format(type = 'NDC', val = ndc, opt=0))
+    rxcui = tree.findtext('idGroup/rxnormId')
+    if rxcui is None: return None
+    return int(rxcui)
+
+
 def get_rxcui_id_for_string(presc_string, start_cnt=6, uniq_threshold=80, score_threshold=50):
-    split = re.split('[\W]+',presc_string.lower())
-    start_cnt = min(len(split),start_cnt)
+    if presc_string is None: return None
+    split = format_and_split(presc_string, start_cnt)
 
     match_dict = {}
 
-    for i in range(start_cnt,0,-1):
+    for i in range(len(split),0,-1):
         approx_list = get_approx_term(' '.join(split[0:i]),True)
 
         rxcui_above_threshold = []
@@ -97,6 +105,12 @@ def get_rxcui_id_for_string(presc_string, start_cnt=6, uniq_threshold=80, score_
 
     return best_rxcui
 
+def format_and_split(med_text, start_cnt):
+    med_text = med_text.lower()
+    split = re.split('[\W]+',med_text)
+    start_cnt = min(len(split),start_cnt)
+    return split
+
 def get_brand_names_for_rxcui(ing_rxcui,ret_w_rxcui=False):
     tree = xml_tree_for_url('/brands?ingredientids={rxcui}'.format(rxcui = ing_rxcui))
     brand_nms = []
@@ -107,6 +121,7 @@ def get_brand_names_for_rxcui(ing_rxcui,ret_w_rxcui=False):
     return brand_nms
 
 def get_name_for_rxcui_id(rxcui):
+    if (rxcui is None) or len(str(rxcui)) == 0 : return None
     return get_properties_for_rxcui(rxcui,[Constants.name])[Constants.name]
 
 def get_properties_for_rxcui(rxcui,property_names):
@@ -114,10 +129,31 @@ def get_properties_for_rxcui(rxcui,property_names):
 
     return dict_from_tags(tree.find('./properties'),property_names)
 
+def get_ing_for_rxcui(rxcui):
+    tree = xml_tree_for_url('/rxcui/{rxcuid}/allrelated'.format(rxcuid = rxcui))
+    for concept_node in tree.findall('./allRelatedGroup/conceptGroup'):
+        prop = concept_node.findtext('tty')
+        if prop == 'IN':
+            return concept_node.findtext('./conceptProperties/name')
+    return None
 
+def get_strength_for_rxcui(rxcui):
+    tree = xml_tree_for_url('/rxcui/{rxcuid}/property?propName=AVAILABLE_STRENGTH'.format(rxcuid = rxcui))
+    return tree.findtext('./propConceptGroup/propConcept/propValue')
+
+def get_maytreat_for_rxcui(rxcui):
+    tree = xml_tree_for_url('/rxclass/class/byRxcui?rxcui={rxcuid}&relaSource=NDFRT&relas=may_treat'.format(rxcuid = rxcui))
+
+    maytreat = []
+    for concept_node in tree.findall('./rxclassDrugInfoList/rxclassDrugInfo'):
+        disease = concept_node.findtext('./rxclassMinConceptItem/className')
+        maytreat.append(disease)
+
+    return maytreat
 
 def dict_from_tags(tree, tags):
     tag_dict = {}
+    if tree is None : return tag_dict
     for tag in tags:
         tag_dict[tag] = tree.findtext(tag)
     return tag_dict
