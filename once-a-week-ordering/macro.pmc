@@ -1,0 +1,89 @@
+﻿[PMC Code v5.0.5]|F3||0|Window,2,Fast,0,1,Input,-1,-1,1|1|Macro1
+Groups=Start:1
+1|WinActivate||1|333|WinActivate||ahk_class XLMAIN ahk_exe EXCEL.EXE|||
+2|WinWaitActive||1|333|WinWaitActive||ahk_class XLMAIN ahk_exe EXCEL.EXE|||
+3|LControl Down|{LControl Down}|1|0|Send|||||
+4|c|{c}|1|0|Send|||||
+5|LControl Up|{LControl Up}|1|0|Send|||||
+6|[Pause]||1|200|Sleep|||||
+7|Right|{Right}|1|0|Send|||||
+8|WinActivate||1|333|WinActivate||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+9|WinWaitActive||1|333|WinWaitActive||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+10|LAlt Down|{LAlt Down}|1|0|Send|||||
+11|c|{c}|1|0|Send|||||
+12|LAlt Up|{LAlt Up}|1|0|Send|||||
+13|WinWaitActive||1|333|WinWaitActive||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+14|LControl Down|{LControl Down}|1|0|Send|||||
+15|v|{v}|1|0|Send|||||
+16|LControl Up|{LControl Up}|1|0|Send|||||
+17|[Pause]||1|200|Sleep|||||
+18|Backspace|{Backspace}|1|0|Send|||||
+19|[Pause]||1|100|Sleep|||||
+20|Enter|{Enter}|1|0|Send|||||
+21|WinWaitActive||1|333|WinWaitActive||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+22|1|{1}|1|0|Send|||||
+23|Enter|{Enter}|1|0|Send|||||
+24|[Pause]||1|300|Sleep|||||
+25|LAlt Down|{LAlt Down}|1|0|Send|||||
+26|u|{u}|1|0|Send|||||
+27|LAlt Up|{LAlt Up}|1|0|Send|||||
+28|WinWaitActive||1|333|WinWaitActive||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+29|Tab|{Tab}|12|200|Send|||||
+30|[Pause]||1|300|Sleep|||||
+31|WinActivate||1|333|WinActivate||ahk_class XLMAIN ahk_exe EXCEL.EXE|||
+32|WinWaitActive||1|333|WinWaitActive||ahk_class XLMAIN ahk_exe EXCEL.EXE|||
+33|LControl Down|{LControl Down}|1|0|Send|||||
+34|c|{c}|1|0|Send|||||
+35|LControl Up|{LControl Up}|1|0|Send|||||
+36|[Pause]||1|300|Sleep|||||
+37|Right|{Right}|1|0|Send|||||
+38|[Pause]||1|300|Sleep|||||
+39|WinActivate||1|333|WinActivate||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+40|WinWaitActive||1|333|WinWaitActive||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+41|LControl Down|{LControl Down}|1|0|Send|||||
+42|a|{a}|1|0|Send|||||
+43|LControl Up|{LControl Up}|1|0|Send|||||
+44|[Pause]||1|200|Sleep|||||
+45|LControl Down|{LControl Down}|1|0|Send|||||
+46|v|{v}|1|0|Send|||||
+47|LControl Up|{LControl Up}|1|0|Send|||||
+48|[Pause]||1|300|Sleep|||||
+49|Tab|{Tab}|1|0|Send|||||
+50|[Pause]||1|400|Sleep|||||
+51|0|{0}|1|0|Send|||||
+52|[Pause]||1|400|Sleep|||||
+53|Tab|{Tab}|1|0|Send|||||
+54|[Pause]||1|400|Sleep|||||
+55|WinActivate||1|333|WinActivate||ahk_class XLMAIN ahk_exe EXCEL.EXE|||
+56|WinWaitActive||1|333|WinWaitActive||ahk_class XLMAIN ahk_exe EXCEL.EXE|||
+57|LControl Down|{LControl Down}|1|0|Send|||||
+58|c|{c}|1|0|Send|||||
+59|LControl Up|{LControl Up}|1|0|Send|||||
+60|[Pause]||1|300|Sleep|||||
+61|Right|{Right}|1|0|Send|||||
+62|[Pause]||1|300|Sleep|||||
+63|WinActivate||1|333|WinActivate||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+64|WinWaitActive||1|333|WinWaitActive||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+65|[Pause]||1|200|Sleep|||||
+66|LControl Down|{LControl Down}|1|0|Send|||||
+67|v|{v}|1|0|Send|||||
+68|LControl Up|{LControl Up}|1|0|Send|||||
+69|[Pause]||1|200|Sleep|||||
+70|Enter|{Enter}|1|0|Send|||||
+71|[Pause]||1|600|Sleep|||||
+72|LAlt Down|{LAlt Down}|1|0|Send|||||
+73|s|{s}|1|0|Send|||||
+74|LAlt Up|{LAlt Up}|1|0|Send|||||
+75|[Pause]||1|600|Sleep|||||
+76|LAlt Down|{LAlt Down}|1|0|Send|||||
+77|s|{s}|1|0|Send|||||
+78|LAlt Up|{LAlt Up}|1|0|Send|||||
+79|WinWaitActive||1|333|WinWaitActive||ahk_class SunAwtDialog ahk_exe jp2launcher.exe|||
+80|WinActivate||1|333|WinActivate||ahk_class XLMAIN ahk_exe EXCEL.EXE|||
+81|WinWaitActive||1|333|WinWaitActive||ahk_class XLMAIN ahk_exe EXCEL.EXE|||
+82|[Pause]||1|300|Sleep|||||
+83|1|{1}|1|0|Send|||||
+84|Enter|{Enter}|1|0|Send|||||
+85|Left|{Left}|3|200|Send|||||
+86|[Pause]||1|300|Sleep|||||
+
